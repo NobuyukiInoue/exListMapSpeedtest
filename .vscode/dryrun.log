@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/yuza/Library/CloudStorage/OneDrive-個人用/Develop-works/LANGS/LeetCode/Problems/2300_2399/2315_Count_Asterisks/Project_Elixir'
+make: Leaving directory `/Users/yuza/Library/CloudStorage/OneDrive-個人用/Develop-works/LANGS/LeetCode/Problems/2300_2399/2315_Count_Asterisks/Project_Elixir'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

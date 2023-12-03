@@ -1,0 +1,290 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+make: *** No rule to make target `all'.  Stop.
+
+
+# Make data base, printed on Fri Jul  1 00:14:06 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+GREP_COLOR = 37;45
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /Users/yuza/Library/CloudStorage/OneDrive-個人用/Develop-works/LANGS/LeetCode/Problems/2300_2399/2315_Count_Asterisks/Project_Elixir
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ja","availableLanguages":{"*":"ja"},"_languagePackId":"3cd3bd15e30fa0124a3f232cbca66525.ja","_translationsConfigFile":"/Users/yuza/Library/Application Support/Code/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/tcf.json","_cacheRoot":"/Users/yuza/Library/Application Support/Code/clp/3cd3bd15e30fa0124a3f232cbca66525.ja","_resolvedLanguagePackCoreLocation":"/Users/yuza/Library/Application Support/Code/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/30d9c6cd9483b2cc586687151bcbcd635f373630","_corruptedFile":"/Users/yuza/Library/Application Support/Code/clp/3cd3bd15e30fa0124a3f232cbca66525.ja/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /usr/bin/make
+# makefile
+MAKEFILE_LIST := 
+# environment
+LESS_TERMCAP_se = [0m
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+__CFBundleIdentifier = com.microsoft.VSCode
+# environment
+INFOPATH = /opt/homebrew/share/info:
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/xq/j3wfs0g55s9cmg4cmjn9tylh0000gn/T/vscode-ipc-d574b93c-1b5c-481c-a2a1-21f9eae1d38b.sock
+# environment
+VSCODE_CWD = /Users/yuza/Library/CloudStorage/OneDrive-個人用/Develop-works/LANGS/LeetCode/Problems/2300_2399/2315_Count_Asterisks/Project_Elixir
+# environment
+LESS_TERMCAP_me = [0m
+# environment
+LESS_TERMCAP_mb = [01;31m
+# environment
+LSCOLORS = exfxcxdxbxGxDxabagacad
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+LS_COLORS = di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rTnooTnNVD/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+VISUAL = nano
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/yuza/OneDrive/Develop-works/LANGS/LeetCode/Problems/2300_2399/2315_Count_Asterisks/Project_Elixir
+# environment
+HOMEBREW_CELLAR = /opt/homebrew/Cellar
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+LESS_TERMCAP_ue = [0m
+# environment
+MANPATH = /opt/homebrew/share/man::
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/yuza
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/yuza/Library/Application Support/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
+# environment
+LOGNAME = yuza
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+LESS_TERMCAP_md = [01;31m
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+LC_TERMINAL = iTerm2
+# environment
+PATH = /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS
+# environment
+SHLVL = 3
+# environment
+LESS_TERMCAP_so = [00;47;30m
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = yuza
+# makefile
+.DEFAULT_GOAL := 
+# default
+MAKECMDGOALS := all
+# environment
+TERM_SESSION_ID = w0t0p0:F81023F4-9A5A-4E86-BF64-F564404D5165
+# environment
+LESS = -F -g -i -M -R -S -w -X -z-4
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+GREP_COLORS = mt=37;45
+# environment
+TERM_PROGRAM = iTerm.app
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/xq/j3wfs0g55s9cmg4cmjn9tylh0000gn/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/yuza/Library/Application Support/Code/1.68.1-main.sock
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 3.4.15
+# environment
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.29858366.29858372.916FD5CE-CA92-497A-9625-5AB460CB2065
+# environment
+LESS_TERMCAP_us = [01;32m
+# environment
+LC_TERMINAL_VERSION = 3.4.15
+# environment
+HOMEBREW_PREFIX = /opt/homebrew
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+BROWSER = open
+# environment
+ITERM_SESSION_ID = w0t0p0:F81023F4-9A5A-4E86-BF64-F564404D5165
+# environment
+HOMEBREW_REPOSITORY = /opt/homebrew
+# environment
+COLORFGBG = 7;0
+# environment
+__CF_USER_TEXT_ENCODING = 0x1F5:1:14
+# environment
+COMMAND_MODE = unix2003
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+ITERM_PROFILE = Setting1
+# environment
+EDITOR = nano
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 4316
+# variable set hash-table stats:
+# Load=94/1024=9%, Rehash=0, Collisions=7/114=6%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777234, inode 33483223): 15 files, no impossibilities.
+
+# 15 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+makefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+GNUmakefile:
+#  A default, MAKEFILES, or -include/sinclude makefile.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=6/1024=1%, Rehash=0, Collisions=0/17=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 0
+# # of strcache buffers: 0
+# strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
+# strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
+
+# Finished Make data base on Fri Jul  1 00:14:06 2022
+
+ 
