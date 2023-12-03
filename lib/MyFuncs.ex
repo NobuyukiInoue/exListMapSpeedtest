@@ -3,7 +3,7 @@ defmodule MyFuncs do
   def get_for_with_enum_at(nums) do
     for i <- 0..Enum.count(nums) - 1 do
       _ = Enum.at(nums, i)
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(Enum.at(nums, i)) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(Enum.at(nums, i)) |> IO.puts()
     end
   end
 
@@ -11,7 +11,7 @@ defmodule MyFuncs do
   def get_Enum_reduce_each(nums) do
     Enum.reduce(nums, 0, fn num, i ->
       _ = num
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       i + 1
     end)
   end
@@ -20,7 +20,7 @@ defmodule MyFuncs do
   def get_Enum_reduce_with_enum_at(nums) do
     Enum.reduce(0..Enum.count(nums) - 1, 0, fn i, _ ->
       num = Enum.at(nums, i)
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       num
     end)
   end
@@ -32,7 +32,7 @@ defmodule MyFuncs do
 
   def get_recurse(i, [head | tail]) do
     _ = head
-  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(head) |> IO.puts()
+  # "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(head) |> IO.puts()
     get_recurse(i + 1, tail)
   end
 
@@ -40,7 +40,7 @@ defmodule MyFuncs do
   def get_list_at_all(nums) do
     for i <- 0..Enum.count(nums) - 1 do
       num = get_list_at(nums, i)
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       num
     end
   end
@@ -67,7 +67,7 @@ defmodule MyFuncs do
   def get_map_witn_enum_at(nums_map) do
     for i <- 0..map_size(nums_map)-1 do
       num = Map.get(nums_map, i)
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       num
     end
   end
@@ -76,7 +76,7 @@ defmodule MyFuncs do
   def get_map_each(nums_map) do
     Enum.reduce(0..map_size(nums_map)-1, 0, fn i, _ ->
       num = Map.get(nums_map, i)
-  #     "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
+  #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       num
     end)
   end

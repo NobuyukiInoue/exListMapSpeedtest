@@ -97,26 +97,27 @@ defmodule Solution do
     "nums = [" <> Mylib.intList_to_string(nums) <> "]" |> IO.puts()
 
     # create Map from List nums.
-    {exectime, nums_map} = Benchmark.measure2(fn ->
+    {exectime, nums_map} = Benchmark.measure_with_res(fn ->
       Enum.reduce(nums, {0, %{}}, fn num, {i, res} ->
         {i + 1, Map.put(res, i, num)}
       end) |> elem(1)
     end)
 
     # output Map nums_map.
-    str_nums_map = Enum.reduce(0..arr_size-1, "", fn i, res ->
-      res <> ", " <> Integer.to_string(i) <> ": " <>  Integer.to_string(Map.get(nums_map, i))
+    arr_str_nums_map = Enum.reduce(0..arr_size-1, [], fn i, res ->
+      res ++ [Integer.to_string(i) <> ": " <>  Integer.to_string(Map.get(nums_map, i))]
     end)
-    "nums_map = %{" <> String.slice(str_nums_map, 2, String.length(str_nums_map) - 2) <> "}" |> IO.puts()
+    "nums_map = %{" <> Enum.join(arr_str_nums_map, ", ") <> "}" |> IO.puts()
 
     # Execute some Functions.
-    result_times = for i <- 0..1 do
+    loop_count = 2
+    result_times = for i <- 0..loop_count do
       Integer.to_string(i + 1) <> " th run." |> IO.puts()
       get_list_all(nums, nums_map, enable_puts)
     end
 
     # Output results.
-    for i <- 0..1 do
+    for i <- 0..loop_count do
       "##-------------------------------------------##" |> IO.puts()
       "## " <> Integer.to_string(i + 1) <> " th results." |> IO.puts()
       "##-------------------------------------------##" |> IO.puts()
