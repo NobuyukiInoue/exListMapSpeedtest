@@ -1,4 +1,11 @@
 defmodule MyFuncs do
+  @spec get_for(nums :: [integer]) :: [integer]
+  def get_for(nums) do
+    for num <- nums do
+      num
+    end
+  end
+
   @spec get_for_with_enum_at(nums :: [integer]) :: [integer]
   def get_for_with_enum_at(nums) do
     for i <- 0..Enum.count(nums) - 1 do

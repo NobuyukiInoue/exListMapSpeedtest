@@ -12,7 +12,18 @@ defmodule Solution do
   def get_list_all(nums, nums_map, enable_puts) do
     res = %{}
 
-    "1. Execute get List all element by for with Enum.at()." |> IO.puts()
+    "1. Execute get List all element by for each." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      if enable_puts do
+        MyFuncs_with_puts.get_for(nums)
+      else
+        MyFuncs.get_for(nums)
+      end
+    end)
+    res = Map.put(res, :for, exectime)
+
+
+    "2. Execute get List all element by for with Enum.at()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_for_with_enum_at(nums)
@@ -22,7 +33,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :for_with_enum_at, exectime)
 
-    "2. Execute get List all element by Enum.reduce() each." |> IO.puts()
+    "3. Execute get List all element by Enum.reduce() each." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_Enum_reduce_each(nums)
@@ -32,7 +43,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :reduce_each, exectime)
 
-    "3. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
+    "4. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_Enum_reduce_with_enum_at(nums)
@@ -42,7 +53,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :reduce_with_enum_at, exectime)
 
-    "4. Execute get List all element by recursive call." |> IO.puts()
+    "5. Execute get List all element by recursive call." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_recurse(0, nums)
@@ -52,7 +63,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :recurse, exectime)
 
-    "5. Execute get_list_at(nums, i)." |> IO.puts()
+    "6. Execute get_list_at(nums, i)." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_list_at_all(nums)
@@ -62,7 +73,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :get_list_at, exectime)
 
-    "6. Execute get Map all element by for." |> IO.puts()
+    "7. Execute get Map all element by for." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_map_witn_enum_at(nums_map)
@@ -72,7 +83,7 @@ defmodule Solution do
     end)
     res = Map.put(res, :map_witn_enum_at, exectime)
 
-    "7. Execute get Map all element by Enum.reduce()." |> IO.puts()
+    "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       if enable_puts do
         MyFuncs_with_puts.get_map_each(nums_map)
@@ -102,8 +113,11 @@ defmodule Solution do
         {i + 1, Map.put(res, i, num)}
       end) |> elem(1)
     end)
+    "List to Map finished." |> IO.puts()
+    "List to Map transration time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]" |> IO.puts()
 
     # output Map nums_map.
+    "Wait ... create output string from Map." |> IO.puts()
     arr_str_nums_map = Enum.reduce(0..arr_size-1, [], fn i, res ->
       res ++ [Integer.to_string(i) <> ": " <>  Integer.to_string(Map.get(nums_map, i))]
     end)
@@ -122,14 +136,15 @@ defmodule Solution do
       "## " <> Integer.to_string(i + 1) <> " th results." |> IO.puts()
       "##-------------------------------------------##" |> IO.puts()
       res = Enum.at(result_times, i)
-      "1. for with Enum.at()    time : " <> Float.to_string(Float.round(Map.get(res, :for_with_enum_at), 3)) <> " [s]" |> IO.puts()
-      "2. reduce each           time : " <> Float.to_string(Float.round(Map.get(res, :reduce_each), 3)) <> " [s]" |> IO.puts()
-      "3. reduce with Enum.at() time : " <> Float.to_string(Float.round(Map.get(res, :reduce_with_enum_at), 3)) <> " [s]" |> IO.puts()
-      "4. recurse (head)        time : " <> Float.to_string(Float.round(Map.get(res, :recurse), 3)) <> " [s]" |> IO.puts()
-      "5. get_list_at()         time : " <> Float.to_string(Float.round(Map.get(res, :get_list_at), 3)) <> " [s]" |> IO.puts()
+      "1. for each               time : " <> Float.to_string(Float.round(Map.get(res, :for), 3)) <> " [s]" |> IO.puts()
+      "2. for with Enum.at()     time : " <> Float.to_string(Float.round(Map.get(res, :for_with_enum_at), 3)) <> " [s]" |> IO.puts()
+      "3. reduce each            time : " <> Float.to_string(Float.round(Map.get(res, :reduce_each), 3)) <> " [s]" |> IO.puts()
+      "4. reduce with Enum.at()  time : " <> Float.to_string(Float.round(Map.get(res, :reduce_with_enum_at), 3)) <> " [s]" |> IO.puts()
+      "5. recurse (head)         time : " <> Float.to_string(Float.round(Map.get(res, :recurse), 3)) <> " [s]" |> IO.puts()
+      "6. get_list_at()          time : " <> Float.to_string(Float.round(Map.get(res, :get_list_at), 3)) <> " [s]" |> IO.puts()
       "\nList to Map transration time : " <> Float.to_string(Float.round(exectime, 3)) <> " [s]" |> IO.puts()
-      "6. Map by for            time : " <> Float.to_string(Float.round(Map.get(res, :map_witn_enum_at), 3)) <> " [s]" |> IO.puts()
-      "7. Map by Enum.reduce()  time : " <> Float.to_string(Float.round(Map.get(res, :map_each), 3)) <> " [s]" |> IO.puts()
+      "7. Map by for             time : " <> Float.to_string(Float.round(Map.get(res, :map_witn_enum_at), 3)) <> " [s]" |> IO.puts()
+      "8. Map by Enum.reduce()   time : " <> Float.to_string(Float.round(Map.get(res, :map_each), 3)) <> " [s]" |> IO.puts()
       IO.puts("")
     end
     :ok
