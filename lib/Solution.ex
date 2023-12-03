@@ -1,6 +1,7 @@
 defmodule Solution do
 
   @spec get_list_all(nums :: [integer], nums_map :: %{}, enable_puts :: boolean) :: %{
+          for: float(),
           for_with_enum_at: float(),
           get_list_at: float(),
           map_each: float(),
@@ -125,17 +126,17 @@ defmodule Solution do
 
     # Execute some Functions.
     loop_count = 2
-    result_times = for i <- 0..loop_count do
-      Integer.to_string(i + 1) <> " th run." |> IO.puts()
+    result_times = for i <- 1..loop_count do
+      Integer.to_string(i) <> " th run." |> IO.puts()
       get_list_all(nums, nums_map, enable_puts)
     end
 
     # Output results.
-    for i <- 0..loop_count do
+    for i <- 1..loop_count do
       "##-------------------------------------------##" |> IO.puts()
-      "## " <> Integer.to_string(i + 1) <> " th results." |> IO.puts()
+      "## " <> Integer.to_string(i) <> " th results." |> IO.puts()
       "##-------------------------------------------##" |> IO.puts()
-      res = Enum.at(result_times, i)
+      res = Enum.at(result_times, i - 1)
       "1. for each               time : " <> Float.to_string(Float.round(Map.get(res, :for), 3)) <> " [s]" |> IO.puts()
       "2. for with Enum.at()     time : " <> Float.to_string(Float.round(Map.get(res, :for_with_enum_at), 3)) <> " [s]" |> IO.puts()
       "3. reduce each            time : " <> Float.to_string(Float.round(Map.get(res, :reduce_each), 3)) <> " [s]" |> IO.puts()

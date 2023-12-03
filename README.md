@@ -20,13 +20,18 @@ $ mix escript.build
 ## Execute example.
 
 ```
-$ ./main 1000 true
-...
-...
+$ ./main
+Usage) ./main <element_size> [enable_puts]
 
+Example)
+./main 10000 true
+./main 10000
+```
+
+```
 $ ./main 100000
 enable_puts = false
-arr_size = 10
+arr_size = 100000
 nums = [6, 7, 2, 8, 4, 4, 4, 0, 0, .....
 ....
 ....
