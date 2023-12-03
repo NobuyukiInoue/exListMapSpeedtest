@@ -119,8 +119,8 @@ defmodule Solution do
     # output Map nums_map.
     "Wait ... create output string from Map." |> IO.puts()
     arr_str_nums_map = Enum.reduce(0..arr_size-1, [], fn i, res ->
-      res ++ [Integer.to_string(i) <> ": " <>  Integer.to_string(Map.get(nums_map, i))]
-    end)
+      [Integer.to_string(i) <> ": " <>  Integer.to_string(Map.get(nums_map, i))] ++ res
+    end) |> Enum.reverse()
     "nums_map = %{" <> Enum.join(arr_str_nums_map, ", ") <> "}" |> IO.puts()
 
     # Execute some Functions.

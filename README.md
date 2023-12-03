@@ -15,13 +15,15 @@ https://qiita.com/gx3n-inue/private/6f04bbc260c70c5730a2
 
 ```
 $ mix escript.build
-$ ./main 1000 true
-$ ./main 100000
 ```
 
 ## Execute example.
 
 ```
+$ ./main 1000 true
+...
+...
+
 $ ./main 100000
 enable_puts = false
 arr_size = 10
@@ -30,7 +32,7 @@ nums = [6, 7, 2, 8, 4, 4, 4, 0, 0, .....
 ....
 
 List to Map finished.
-List to Map transration time : 0.0 [s]
+List to Map transration time : 0.025 [s]
 Wait ... create output string from Map.
 nums_map = %{0: 6, 1: 7, 2: 2, 3: 8, 4: 4, 5: 4, 6: 4, 7: 0, 8: 0, .....
 ....
