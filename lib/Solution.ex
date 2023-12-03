@@ -132,11 +132,10 @@ defmodule Solution do
     end
 
     # Output results.
-    for i <- 1..loop_count do
+    Enum.reduce(result_times, 1, fn res, i ->
       "##-------------------------------------------##" |> IO.puts()
       "## " <> Integer.to_string(i) <> " th results." |> IO.puts()
       "##-------------------------------------------##" |> IO.puts()
-      res = Enum.at(result_times, i - 1)
       "1. for each               time : " <> Float.to_string(Float.round(Map.get(res, :for), 3)) <> " [s]" |> IO.puts()
       "2. for with Enum.at()     time : " <> Float.to_string(Float.round(Map.get(res, :for_with_enum_at), 3)) <> " [s]" |> IO.puts()
       "3. reduce each            time : " <> Float.to_string(Float.round(Map.get(res, :reduce_each), 3)) <> " [s]" |> IO.puts()
@@ -147,7 +146,8 @@ defmodule Solution do
       "7. Map by for             time : " <> Float.to_string(Float.round(Map.get(res, :map_witn_enum_at), 3)) <> " [s]" |> IO.puts()
       "8. Map by Enum.reduce()   time : " <> Float.to_string(Float.round(Map.get(res, :map_each), 3)) <> " [s]" |> IO.puts()
       IO.puts("")
-    end
+      i + 1
+    end)
     :ok
   end
 end
