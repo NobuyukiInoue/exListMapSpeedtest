@@ -1,101 +1,5 @@
 defmodule Solution do
 
-  @spec get_list_all(nums :: [integer], nums_map :: %{}, enable_puts :: boolean) :: %{
-          for: float(),
-          for_with_enum_at: float(),
-          get_list_at: float(),
-          map_each: float(),
-          map_witn_enum_at: float(),
-          recurse: float(),
-          reduce_each: float(),
-          reduce_with_enum_at: float()
-        }
-  def get_list_all(nums, nums_map, enable_puts) do
-    res = %{}
-
-    "1. Execute get List all element by for each." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_for(nums)
-      else
-        MyFuncs.get_for(nums)
-      end
-    end)
-    res = Map.put(res, :for, exectime)
-
-
-    "2. Execute get List all element by for with Enum.at()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_for_with_enum_at(nums)
-      else
-        MyFuncs.get_for_with_enum_at(nums)
-      end
-    end)
-    res = Map.put(res, :for_with_enum_at, exectime)
-
-    "3. Execute get List all element by Enum.reduce() each." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_Enum_reduce_each(nums)
-      else
-        MyFuncs.get_Enum_reduce_each(nums)
-      end
-    end)
-    res = Map.put(res, :reduce_each, exectime)
-
-    "4. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_Enum_reduce_with_enum_at(nums)
-      else
-        MyFuncs.get_Enum_reduce_with_enum_at(nums)
-      end
-    end)
-    res = Map.put(res, :reduce_with_enum_at, exectime)
-
-    "5. Execute get List all element by recursive call." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_recurse(0, nums)
-      else
-        MyFuncs.get_recurse(0, nums)
-      end
-    end)
-    res = Map.put(res, :recurse, exectime)
-
-    "6. Execute get_list_at(nums, i)." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_list_at_all(nums)
-      else
-        MyFuncs.get_list_at_all(nums)
-      end
-    end)
-    res = Map.put(res, :get_list_at, exectime)
-
-    "7. Execute get Map all element by for." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_map_witn_enum_at(nums_map)
-      else
-        MyFuncs.get_map_witn_enum_at(nums_map)
-      end
-    end)
-    res = Map.put(res, :map_witn_enum_at, exectime)
-
-    "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      if enable_puts do
-        MyFuncs_with_puts.get_map_each(nums_map)
-      else
-        MyFuncs.get_map_each(nums_map)
-      end
-    end)
-    Map.put(res, :map_each, exectime)
-
-  end
-
   @spec main(arr_size :: integer, enable_puts :: boolean) :: :ok
   def main(arr_size, enable_puts) do
     "arr_size = " <> Integer.to_string(arr_size) |> IO.puts()
@@ -128,7 +32,11 @@ defmodule Solution do
     loop_count = 2
     result_times = for i <- 1..loop_count do
       Integer.to_string(i) <> " th run." |> IO.puts()
-      get_list_all(nums, nums_map, enable_puts)
+      if enable_puts do
+        MyFuncs_with_puts.get_list_all(nums, nums_map)
+      else
+        MyFuncs.get_list_all(nums, nums_map)
+      end
     end
 
     # Output results.

@@ -1,4 +1,67 @@
 defmodule MyFuncs_with_puts do
+  @spec get_list_all(nums :: [integer], nums_map :: %{integer: integer}) :: %{
+    for: float(),
+    for_with_enum_at: float(),
+    get_list_at: float(),
+    map_each: float(),
+    map_witn_enum_at: float(),
+    recurse: float(),
+    reduce_each: float(),
+    reduce_with_enum_at: float()
+  }
+  def get_list_all(nums, nums_map) do
+    res = %{}
+
+    "1. Execute get List all element by for each." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_for(nums)
+    end)
+    res = Map.put(res, :for, exectime)
+
+
+    "2. Execute get List all element by for with Enum.at()." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_for_with_enum_at(nums)
+    end)
+    res = Map.put(res, :for_with_enum_at, exectime)
+
+    "3. Execute get List all element by Enum.reduce() each." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_Enum_reduce_each(nums)
+    end)
+    res = Map.put(res, :reduce_each, exectime)
+
+    "4. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_Enum_reduce_with_enum_at(nums)
+    end)
+    res = Map.put(res, :reduce_with_enum_at, exectime)
+
+    "5. Execute get List all element by recursive call." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_recurse(0, nums)
+    end)
+    res = Map.put(res, :recurse, exectime)
+
+    "6. Execute get_list_at(nums, i)." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_list_at_all(nums)
+    end)
+    res = Map.put(res, :get_list_at, exectime)
+
+    "7. Execute get Map all element by for." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_map_witn_enum_at(nums_map)
+    end)
+    res = Map.put(res, :map_witn_enum_at, exectime)
+
+    "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
+    exectime = Benchmark.measure(fn ->
+      MyFuncs_with_puts.get_map_each(nums_map)
+    end)
+    Map.put(res, :map_each, exectime)
+  end
+
   @spec get_for(nums :: [integer]) :: [integer]
   def get_for(nums) do
     for num <- nums do
