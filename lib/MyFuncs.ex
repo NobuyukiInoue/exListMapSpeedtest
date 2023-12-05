@@ -14,50 +14,50 @@ defmodule MyFuncs do
 
     "1. Execute get List all element by for each." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_for(nums)
+      get_for(nums)
     end)
     res = Map.put(res, :for, exectime)
 
 
     "2. Execute get List all element by for with Enum.at()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_for_with_enum_at(nums)
+      get_for_with_enum_at(nums)
     end)
     res = Map.put(res, :for_with_enum_at, exectime)
 
     "3. Execute get List all element by Enum.reduce() each." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_Enum_reduce_each(nums)
+      get_Enum_reduce_each(nums)
     end)
     res = Map.put(res, :reduce_each, exectime)
 
     "4. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_Enum_reduce_with_enum_at(nums)
+      get_Enum_reduce_with_enum_at(nums)
     end)
     res = Map.put(res, :reduce_with_enum_at, exectime)
 
     "5. Execute get List all element by recursive call." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_recurse(0, nums)
+      get_recurse_main(nums)
     end)
     res = Map.put(res, :recurse, exectime)
 
     "6. Execute get_list_at(nums, i)." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_list_at_all(nums)
+      get_list_at_all(nums)
     end)
     res = Map.put(res, :get_list_at, exectime)
 
     "7. Execute get Map all element by for." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_map_witn_enum_at(nums_map)
+      get_map_witn_enum_at(nums_map)
     end)
     res = Map.put(res, :map_witn_enum_at, exectime)
 
     "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      MyFuncs.get_map_each(nums_map)
+      get_map_each(nums_map)
     end)
     Map.put(res, :map_each, exectime)
   end
@@ -93,6 +93,11 @@ defmodule MyFuncs do
   #   "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
       num
     end)
+  end
+
+  @spec get_recurse_main(nums :: [integer]) :: integer
+  def get_recurse_main(nums) do
+    get_recurse(0, nums)
   end
 
   @spec get_recurse(i :: integer, nums :: [integer]) :: integer

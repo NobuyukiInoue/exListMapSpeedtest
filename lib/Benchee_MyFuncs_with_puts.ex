@@ -1,67 +1,24 @@
-defmodule MyFuncs_with_puts do
-  @spec get_list_all(nums :: [integer], nums_map :: %{integer: integer}) :: %{
-    for: float(),
-    for_with_enum_at: float(),
-    get_list_at: float(),
-    map_each: float(),
-    map_witn_enum_at: float(),
-    recurse: float(),
-    reduce_each: float(),
-    reduce_with_enum_at: float()
-  }
-  def get_list_all(nums, nums_map) do
-    res = %{}
-
-    "1. Execute get List all element by for each." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_for(nums)
-    end)
-    res = Map.put(res, :for, exectime)
-
-
-    "2. Execute get List all element by for with Enum.at()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_for_with_enum_at(nums)
-    end)
-    res = Map.put(res, :for_with_enum_at, exectime)
-
-    "3. Execute get List all element by Enum.reduce() each." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_Enum_reduce_each(nums)
-    end)
-    res = Map.put(res, :reduce_each, exectime)
-
-    "4. Execute get List all element by Enum.reduce() with Enum.at()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_Enum_reduce_with_enum_at(nums)
-    end)
-    res = Map.put(res, :reduce_with_enum_at, exectime)
-
-    "5. Execute get List all element by recursive call." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_recurse_main(nums)
-    end)
-    res = Map.put(res, :recurse, exectime)
-
-    "6. Execute get_list_at(nums, i)." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_list_at_all(nums)
-    end)
-    res = Map.put(res, :get_list_at, exectime)
-
-    "7. Execute get Map all element by for." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_map_witn_enum_at(nums_map)
-    end)
-    res = Map.put(res, :map_witn_enum_at, exectime)
-
-    "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
-    exectime = Benchmark.measure(fn ->
-      get_map_each(nums_map)
-    end)
-    Map.put(res, :map_each, exectime)
+defmodule Benchee_MyFuncs_with_puts do
+  @spec get_list_all(nums :: [integer], nums_map :: %{integer: integer}, integer, integer, []) :: %{}
+  def get_list_all(nums, nums_map, arg_time, arg_memory_time, arg_print) do
+    Benchee.run(
+      %{
+        "for" => fn -> get_for(nums) end,
+        "for_with_enum_at" => fn -> get_for_with_enum_at(nums) end,
+        "reduce_each" => fn -> get_Enum_reduce_each(nums) end,
+        "reduce_with_enum_at" => fn -> get_Enum_reduce_with_enum_at(nums) end,
+        "recurse" => fn -> get_recurse_main(nums) end,
+        "get_list_at" => fn -> get_list_at_all(nums) end,
+        "map_witn_enum_at" => fn -> get_map_witn_enum_at(nums_map) end,
+        "map_each" => fn -> get_map_each(nums_map) end
+      },
+      time: arg_time,
+      memory_time: arg_memory_time,
+      print: arg_print
+    )
   end
 
+  # 1. Execute get List all element by for each.
   @spec get_for(nums :: [integer]) :: [integer]
   def get_for(nums) do
     for num <- nums do
@@ -69,6 +26,7 @@ defmodule MyFuncs_with_puts do
     end
   end
 
+  # 2. Execute get List all element by for with Enum.at().
   @spec get_for_with_enum_at(nums :: [integer]) :: [integer]
   def get_for_with_enum_at(nums) do
     for i <- 0..Enum.count(nums) - 1 do
@@ -78,6 +36,7 @@ defmodule MyFuncs_with_puts do
     end
   end
 
+  # 3. Execute get List all element by Enum.reduce() each.
   @spec get_Enum_reduce_each(nums :: [integer]) :: integer
   def get_Enum_reduce_each(nums) do
     Enum.reduce(nums, 0, fn num, i ->
@@ -86,6 +45,7 @@ defmodule MyFuncs_with_puts do
     end)
   end
 
+  # 4. Execute get List all element by Enum.reduce() with Enum.at().
   @spec get_Enum_reduce_with_enum_at(nums :: [integer]) :: integer
   def get_Enum_reduce_with_enum_at(nums) do
     Enum.reduce(0..Enum.count(nums) - 1, 0, fn i, _ ->
@@ -95,6 +55,7 @@ defmodule MyFuncs_with_puts do
     end)
   end
 
+  # 5. Execute get List all element by recursive call.
   @spec get_recurse_main(nums :: [integer]) :: integer
   def get_recurse_main(nums) do
     get_recurse(0, nums)
@@ -111,6 +72,7 @@ defmodule MyFuncs_with_puts do
     get_recurse(i + 1, tail)
   end
 
+  # 6. Execute get_list_at(nums, i).
   @spec get_list_at_all(nums :: [integer]) :: [integer]
   def get_list_at_all(nums) do
     for i <- 0..Enum.count(nums) - 1 do
@@ -138,6 +100,7 @@ defmodule MyFuncs_with_puts do
     get_list_at(tail, target_index, i + 1)
   end
 
+  # 7. Execute get Map all element by for.
   @spec get_map_witn_enum_at(nums_map :: %{}) :: [integer]
   def get_map_witn_enum_at(nums_map) do
     for i <- 0..map_size(nums_map)-1 do
@@ -147,6 +110,7 @@ defmodule MyFuncs_with_puts do
     end
   end
 
+  # 8. Execute get Map all element by Enum.reduce().
   @spec get_map_each(nums_map :: %{}) :: integer
   def get_map_each(nums_map) do
     Enum.reduce(0..map_size(nums_map)-1, 0, fn i, _ ->
