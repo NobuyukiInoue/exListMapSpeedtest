@@ -43,7 +43,7 @@ defmodule MyFuncs_with_puts do
     end)
     res = Map.put(res, :recurse, exectime)
 
-    "6. Execute get_list_at(nums, i)." |> IO.puts()
+    "6. Execute get_list_at_all(nums)." |> IO.puts()
     exectime = Benchmark.measure(fn ->
       get_list_at_all(nums)
     end)
@@ -51,13 +51,13 @@ defmodule MyFuncs_with_puts do
 
     "7. Execute get Map all element by for." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      get_map_witn_enum_at(nums_map)
+      get_map_for(nums_map)
     end)
     res = Map.put(res, :map_witn_enum_at, exectime)
 
     "8. Execute get Map all element by Enum.reduce()." |> IO.puts()
     exectime = Benchmark.measure(fn ->
-      get_map_each(nums_map)
+      get_map_reduce(nums_map)
     end)
     Map.put(res, :map_each, exectime)
   end
@@ -138,8 +138,8 @@ defmodule MyFuncs_with_puts do
     get_list_at(tail, target_index, i + 1)
   end
 
-  @spec get_map_witn_enum_at(nums_map :: %{}) :: [integer]
-  def get_map_witn_enum_at(nums_map) do
+  @spec get_map_for(nums_map :: %{}) :: [integer]
+  def get_map_for(nums_map) do
     for i <- 0..map_size(nums_map)-1 do
       num = Map.get(nums_map, i)
       "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()
@@ -147,8 +147,8 @@ defmodule MyFuncs_with_puts do
     end
   end
 
-  @spec get_map_each(nums_map :: %{}) :: integer
-  def get_map_each(nums_map) do
+  @spec get_map_reduce(nums_map :: %{}) :: integer
+  def get_map_reduce(nums_map) do
     Enum.reduce(0..map_size(nums_map)-1, 0, fn i, _ ->
       num = Map.get(nums_map, i)
       "nums[" <> Integer.to_string(i) <> "] = " <> Integer.to_string(num) |> IO.puts()

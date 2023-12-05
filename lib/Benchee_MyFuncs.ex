@@ -9,8 +9,8 @@ defmodule Benchee_MyFuncs do
         "reduce_with_enum_at" => fn -> get_Enum_reduce_with_enum_at(nums) end,
         "recurse" => fn -> get_recurse_main(nums) end,
         "get_list_at" => fn -> get_list_at_all(nums) end,
-        "map_witn_enum_at" => fn -> get_map_witn_enum_at(nums_map) end,
-        "map_each" => fn -> get_map_each(nums_map) end
+        "get_map_for" => fn -> get_map_for(nums_map) end,
+        "get_map_reduce" => fn -> get_map_reduce(nums_map) end
       },
       time: arg_time,
       memory_time: arg_memory_time,
@@ -99,18 +99,16 @@ defmodule Benchee_MyFuncs do
   end
 
   # 7. Execute get Map all element by for.
-  @spec get_map_witn_enum_at(nums_map :: %{}) :: [integer]
-  def get_map_witn_enum_at(nums_map) do
-
+  @spec get_map_for(nums_map :: %{}) :: [integer]
+  def get_map_for(nums_map) do
     for i <- 0..map_size(nums_map)-1 do
       Map.get(nums_map, i)
     end
   end
 
   # 8. Execute get Map all element by Enum.reduce().
-  @spec get_map_each(nums_map :: %{}) :: integer
-  def get_map_each(nums_map) do
-
+  @spec get_map_reduce(nums_map :: %{}) :: integer
+  def get_map_reduce(nums_map) do
     Enum.reduce(0..map_size(nums_map)-1, 0, fn i, _ ->
       Map.get(nums_map, i)
     end)
